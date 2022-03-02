@@ -1,5 +1,7 @@
 package fi.vamk.e2001365.northwind.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.Instant;
 import java.util.LinkedHashSet;
@@ -18,7 +20,7 @@ public class InventoryTransaction {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "transaction_type", nullable = false)
     private InventoryTransactionType inventoryTransactionTypes;
 
@@ -28,24 +30,25 @@ public class InventoryTransaction {
     @Column(name = "transaction_modified_date")
     private Instant transactionModifiedDate;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "product_id", nullable = false)
     private Product products;
 
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "purchase_order_id")
     private PurchaseOrder purchaseOrders;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_order_id")
     private Order orders;
 
     @Column(name = "comments")
     private String comments;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "inventory")
     private Set<PurchaseOrderDetail> purchaseOrderDetails = new LinkedHashSet<>();
 

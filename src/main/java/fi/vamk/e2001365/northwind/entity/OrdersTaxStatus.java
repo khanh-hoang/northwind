@@ -1,5 +1,7 @@
 package fi.vamk.e2001365.northwind.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -8,12 +10,14 @@ import java.util.Set;
 @Table(name = "orders_tax_status")
 public class OrdersTaxStatus {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Boolean id = false;
+    private Integer id;
 
     @Column(name = "tax_status_name", nullable = false, length = 50)
     private String taxStatusName;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "taxStatus")
     private Set<Order> orders = new LinkedHashSet<>();
 
@@ -33,11 +37,11 @@ public class OrdersTaxStatus {
         this.taxStatusName = taxStatusName;
     }
 
-    public Boolean getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Boolean id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }

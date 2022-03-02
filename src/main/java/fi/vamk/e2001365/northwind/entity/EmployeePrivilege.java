@@ -12,12 +12,12 @@ public class EmployeePrivilege {
     private EmployeePrivilegeId id;
 
     @MapsId("employeeId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
 
     @MapsId("privilegeId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "privilege_id", nullable = false)
     private Privilege privilege;
 

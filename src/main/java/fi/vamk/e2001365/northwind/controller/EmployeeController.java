@@ -1,6 +1,7 @@
 package fi.vamk.e2001365.northwind.controller;
 
 import fi.vamk.e2001365.northwind.entity.Employee;
+import fi.vamk.e2001365.northwind.service.EmployeePrivilegeService;
 import fi.vamk.e2001365.northwind.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

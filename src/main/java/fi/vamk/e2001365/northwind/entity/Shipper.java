@@ -1,5 +1,7 @@
 package fi.vamk.e2001365.northwind.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -73,6 +75,7 @@ public class Shipper {
     @Column(name = "attachments")
     private byte[] attachments;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "shipper")
     private Set<Order> orders = new LinkedHashSet<>();
 
