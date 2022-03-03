@@ -1,6 +1,5 @@
 package fi.vamk.e2001365.northwind.controller;
 
-import fi.vamk.e2001365.northwind.entity.Customer;
 import fi.vamk.e2001365.northwind.entity.EmployeePrivilege;
 import fi.vamk.e2001365.northwind.entity.EmployeePrivilegeId;
 import fi.vamk.e2001365.northwind.service.EmployeePrivilegeService;
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 
 @RestController
